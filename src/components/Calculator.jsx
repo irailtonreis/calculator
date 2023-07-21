@@ -2,53 +2,64 @@ import React, { useState } from "react";
 import styles from "./Calculator.module.css";
 
 export function Calculator() {
-  const [firstNumber, setFirstNumber] = useState(0);
-  const [operation, setOperation] = useState("");
-  const [result, setResult] = useState(0);
+  const [result, setResult] = useState("");
+  const [accumulator, setAccumulator] = useState("");
 
-  const handleNumberChange = (e) => {
+  const handleNumberChange = async (e) => {
     let inputNumber = e.target.value;
+    const operation = handleOperationExist(inputNumber);
+
+    if (operation) return;
 
     if (result === 0) {
       setResult(inputNumber);
+      setAccumulator(inputNumber);
     } else {
-      let newNumber = result + inputNumber;
-      setResult(newNumber);
+      setResult((result) => result + inputNumber);
+      setAccumulator((accumulator) => accumulator + inputNumber);
+    }
+  };
+
+  const handleOperationExist = (inputCharacter) => {
+    switch (inputCharacter) {
+      case "+":
+        return accumulator.endsWith(inputCharacter);
+      case "-":
+        return accumulator.endsWith(inputCharacter);
+      case "*":
+        return accumulator.endsWith(inputCharacter);
+      case "/":
+        return accumulator.endsWith(inputCharacter);
+      case "(":
+        return accumulator.endsWith(inputCharacter);
+      case ")":
+        return accumulator.endsWith(inputCharacter);
+      default:
+        return false;
     }
   };
 
   const handlePercentage = () => {
-    let percentageResult = result / 100;
-    setResult(percentageResult);
+    setResult((result) => result / 100);
   };
 
   const handleClear = () => {
-    setResult(0);
+    setResult("");
+    setAccumulator("");
   };
 
   const handleCalculate = () => {
-    switch (operation) {
-      case "+":
-        setResult(firstNumber + parseFloat(result));
-        break;
-      case "-":
-        setResult(firstNumber - parseFloat(result));
-        break;
-      case "X":
-        setResult(firstNumber * parseFloat(result));
-        break;
-      case "/":
-        setResult(firstNumber / parseFloat(result));
-        break;
-      default:
-        break;
+    try {
+      let resultOperation = eval(accumulator.toString());
+      setResult(resultOperation);
+    } catch (error) {
+      setResult("Error");
     }
   };
-  const handleOperator = (event) => {
-    let oldNumber = parseFloat(result);
-    setFirstNumber(oldNumber);
-    setOperation(event.target.value);
-    setResult(0);
+  const handleBackspace = () => {
+    let newResult = result.substring(0, result.length - 1);
+    setResult(newResult);
+    setAccumulator(newResult);
   };
 
   return (
@@ -57,6 +68,9 @@ export function Calculator() {
         <h1 className={styles}>Calculadora</h1>
       </div>
       <div className={styles.container}>
+        <div className={styles.accumulator}>
+          <h2>{accumulator}</h2>
+        </div>
         <div className={styles.result}>
           <h2>{result}</h2>
         </div>
@@ -64,11 +78,28 @@ export function Calculator() {
           <button className={styles.button} onClick={handleClear}>
             AC
           </button>
-          <button className={styles.button}>()</button>
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value="("
+          >
+            (
+          </button>
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value=")"
+          >
+            )
+          </button>
           <button className={styles.button} onClick={handlePercentage}>
             %
           </button>
-          <button className={styles.button} onClick={handleOperator} value="/">
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value="/"
+          >
             /
           </button>
           <button
@@ -92,7 +123,11 @@ export function Calculator() {
           >
             9
           </button>
-          <button className={styles.button} onClick={handleOperator} value="X">
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value="*"
+          >
             X
           </button>
           <button
@@ -116,7 +151,11 @@ export function Calculator() {
           >
             6
           </button>
-          <button className={styles.button} onClick={handleOperator} value="-">
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value="-"
+          >
             -
           </button>
           <button
@@ -140,7 +179,11 @@ export function Calculator() {
           >
             3
           </button>
-          <button className={styles.button} onClick={handleOperator} value="+">
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value="+"
+          >
             +
           </button>
           <button
@@ -157,7 +200,9 @@ export function Calculator() {
           >
             .
           </button>
-          <button className={styles.button}>X</button>
+          <button className={styles.button} onClick={handleBackspace}>
+            X
+          </button>
           <button className={styles.button} onClick={handleCalculate}>
             =
           </button>
