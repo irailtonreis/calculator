@@ -8,6 +8,8 @@ export function Calculator() {
         <h1 className={styles}>Calculadora</h1>
       </div>
       <div className={styles.container}>
+      <div className={styles.result}><h2>01</h2></div>
+      <div className={styles.containerNumber}>
         <button className={styles.button}>AC</button>
         <button className={styles.button}>()</button>
         <button className={styles.button}>%</button>
@@ -28,6 +30,7 @@ export function Calculator() {
         <button className={styles.button}>,</button>
         <button className={styles.button}>X</button>
         <button className={styles.button}>=</button>
+        </div>
       </div>
     </div>
   );

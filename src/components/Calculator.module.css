@@ -13,6 +13,13 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.result{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 1rem;;
+}
+
 
 .button{
     width: 3rem;
