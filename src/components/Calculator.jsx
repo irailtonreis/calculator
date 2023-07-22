@@ -63,6 +63,16 @@ export function Calculator() {
     setAccumulator(newResult);
   };
 
+  const togglePositiveOrNegative = () => {
+    if(accumulator.startsWith('-')){
+      setResult(String(Math.abs(result)));
+      setAccumulator(String(Math.abs(accumulator)));
+    }else{
+      setResult(String(-result))
+      setAccumulator(String(-accumulator))
+    }
+  };
+
   return (
     <div>
       <div className={styles.title}>
@@ -183,7 +193,7 @@ export function Calculator() {
           >
             -
           </button>
-          <button className={styles.button} onClick={handleCalculate}>
+          <button className={styles.button} onClick={togglePositiveOrNegative}>
             +/-
           </button>
           <button
