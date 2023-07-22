@@ -17,6 +17,15 @@
 .accumulator {
   display: flex;
   justify-content: flex-start;
+  min-height: 10rem;
+  margin: 1rem;
+  border-bottom: 1px solid var(--gray-600)
+}
+
+.accumulator h2{
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: bold;
 }
 .result {
   display: flex;
