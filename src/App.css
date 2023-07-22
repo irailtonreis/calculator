@@ -6,7 +6,9 @@
   --green-500: #66FF7F;
   --red-500: #FF5959;
 }
-
+body{
+  background: url(assets/01-caculator.png), lightgray 50% / cover no-repeat;
+}
 button{
   font-family: 'Inter', sans-serif;
 }
