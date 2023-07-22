@@ -1,32 +1,50 @@
 .title {
-    font-size: 1.8rem;
-    text-align: center;
+  font-size: 1.8rem;
+  text-align: center;
 }
 
 .container {
-    max-width: 250px;
-    margin: 0 auto;
-    background: var(--blue-950);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  max-width: 24.375rem;
+  margin: 0 auto;
+  background: var(--gray-950);
+  border-radius: 8px;
 }
-.result{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin: 1rem;;
+.containerNumber {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.accumulator {
+  display: flex;
+  justify-content: flex-start;
+}
+.result {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 1rem;
 }
 
+.button {
+  width: 4.56rem;
+  height: 4.68rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 9px;
+  margin: 0.5rem;
+  cursor: pointer;
+  background: var(--gray-800);
+  color: var(--white);
+}
+.number {
+  font-size: 2.25rem;
+}
+.equalButton {
+  background: var(--green-500);
+  color: var(--gray-950);
+  width: 15.6rem;
+}
 
-.button{
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 50%;
-    margin: 0.3rem;
-    cursor: pointer;
+.backspaceButton {
+  background: var(--red-500);
 }

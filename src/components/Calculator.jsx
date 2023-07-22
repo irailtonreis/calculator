@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Calculator.module.css";
+import { Backspace, Equals } from "@phosphor-icons/react";
 
 export function Calculator() {
   const [result, setResult] = useState("");
   const [accumulator, setAccumulator] = useState("");
 
-  const handleNumberChange = async (e) => {
+  const handleNumberChange = (e) => {
     let inputNumber = e.target.value;
     const operation = handleOperationExist(inputNumber);
 
@@ -95,6 +96,28 @@ export function Calculator() {
           <button className={styles.button} onClick={handlePercentage}>
             %
           </button>
+
+          <button
+            className={`${styles.button} ${styles.number}`}
+            onClick={handleNumberChange}
+            value={7}
+          >
+            7
+          </button>
+          <button
+            className={`${styles.button} ${styles.number}`}
+            onClick={handleNumberChange}
+            value={8}
+          >
+            8
+          </button>
+          <button
+            className={`${styles.button} ${styles.number}`}
+            onClick={handleNumberChange}
+            value={9}
+          >
+            9
+          </button>
           <button
             className={styles.button}
             onClick={handleNumberChange}
@@ -102,26 +125,27 @@ export function Calculator() {
           >
             /
           </button>
+
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
-            value={7}
+            value={4}
           >
-            7
+            4
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
-            value={8}
+            value={5}
           >
-            8
+            5
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
-            value={9}
+            value={6}
           >
-            9
+            6
           </button>
           <button
             className={styles.button}
@@ -131,49 +155,21 @@ export function Calculator() {
             X
           </button>
           <button
-            className={styles.button}
-            onClick={handleNumberChange}
-            value={4}
-          >
-            4
-          </button>
-          <button
-            className={styles.button}
-            onClick={handleNumberChange}
-            value={5}
-          >
-            5
-          </button>
-          <button
-            className={styles.button}
-            onClick={handleNumberChange}
-            value={6}
-          >
-            6
-          </button>
-          <button
-            className={styles.button}
-            onClick={handleNumberChange}
-            value="-"
-          >
-            -
-          </button>
-          <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
             value={1}
           >
             1
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
             value={2}
           >
             2
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
             value={3}
           >
@@ -182,12 +178,15 @@ export function Calculator() {
           <button
             className={styles.button}
             onClick={handleNumberChange}
-            value="+"
+            value="-"
           >
-            +
+            -
+          </button>
+          <button className={styles.button} onClick={handleCalculate}>
+            +/-
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.number}`}
             onClick={handleNumberChange}
             value={0}
           >
@@ -200,11 +199,26 @@ export function Calculator() {
           >
             .
           </button>
-          <button className={styles.button} onClick={handleBackspace}>
-            X
+          <button
+            className={styles.button}
+            onClick={handleNumberChange}
+            value="+"
+          >
+            +
           </button>
-          <button className={styles.button} onClick={handleCalculate}>
-            =
+
+          <button
+            className={`${styles.button} ${styles.backspaceButton}`}
+            onClick={handleBackspace}
+          >
+            <Backspace color="#343434" size={32} />
+          </button>
+
+          <button
+            className={`${styles.button} ${styles.equalButton}`}
+            onClick={handleCalculate}
+          >
+            <Equals  size={50}/>
           </button>
         </div>
       </div>

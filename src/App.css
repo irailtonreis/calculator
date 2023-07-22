@@ -1,3 +1,11 @@
 #root{
-  --blue-950: #172554;
+  --white: #FFFFFF;
+  --gray-800: #343434;
+  --gray-950: #151515;
+  --green-500: #66FF7F;
+  --red-500: #FF5959;
+}
+
+button{
+  font-family: 'Inter', sans-serif;
 }
