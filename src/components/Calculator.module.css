@@ -45,6 +45,13 @@
   width: 15.6rem;
 }
 
-.backspaceButton {
+.backspaceButton,
+.accumulatorButton {
   background: var(--red-500);
+  color: var(--gray-950);
+}
+
+.greenButton {
+    color: var(--green-500);
+    font-size: 1.5rem;
 }

@@ -70,30 +70,31 @@ export function Calculator() {
       </div>
       <div className={styles.container}>
         <div className={styles.accumulator}>
-          <h2>{accumulator}</h2>
-        </div>
-        <div className={styles.result}>
+          <div><h2>{accumulator}</h2></div>
+          <div className={styles.result}>
           <h2>{result}</h2>
         </div>
+        </div>
+        
         <div className={styles.containerNumber}>
-          <button className={styles.button} onClick={handleClear}>
-            AC
+          <button className={`${styles.button} ${styles.accumulatorButton}`} onClick={handleClear}>
+            C
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.greenButton}`}
             onClick={handleNumberChange}
             value="("
           >
             (
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.greenButton}`}
             onClick={handleNumberChange}
             value=")"
           >
             )
           </button>
-          <button className={styles.button} onClick={handlePercentage}>
+          <button className={`${styles.button} ${styles.greenButton}`} onClick={handlePercentage}>
             %
           </button>
 
@@ -119,7 +120,7 @@ export function Calculator() {
             9
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.greenButton}`}
             onClick={handleNumberChange}
             value="/"
           >
@@ -148,7 +149,7 @@ export function Calculator() {
             6
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.greenButton}`}
             onClick={handleNumberChange}
             value="*"
           >
@@ -176,7 +177,7 @@ export function Calculator() {
             3
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.greenButton}`}
             onClick={handleNumberChange}
             value="-"
           >
@@ -200,7 +201,7 @@ export function Calculator() {
             .
           </button>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.greenButton}`}
             onClick={handleNumberChange}
             value="+"
           >
