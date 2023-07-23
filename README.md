@@ -1,4 +1,4 @@
-# Desafio calculadora
+<h1 align="center"> Desafio calculadora</h1>
 
 ## Objetivo
 
@@ -13,18 +13,17 @@ Utilizar node >= 14
 
 ## Faça download para sua máquina
 
-`
+```ssh
 git clone https://github.com/irailtonreis/calculator.git
-
-`
+```
 ## Execute o projeto seguindo os comandos abaixo: 
 
-`
+```ssh
 cd calculator
 
 npm install
 
 npm run dev
 
-`
-### Após executar clique no link geradno no terminal
+```
+### Após executar clique no link gerado no terminal
