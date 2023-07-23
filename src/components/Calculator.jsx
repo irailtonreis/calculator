@@ -41,7 +41,9 @@ export function Calculator() {
   };
 
   const handlePercentage = () => {
-    setResult((result) => result / 100);
+    let calculetedPorcentage = String(result / 100);
+    setResult(calculetedPorcentage);
+    setAccumulator(calculetedPorcentage)
   };
 
   const handleClear = () => {
